@@ -1,8 +1,8 @@
-const list = (head, tail) => () => ({head, tail});
+const list = (head, tail) => h => h ? head : tail;
 
-const head = l => l().head;
+const head = l => l(true);
 
-const tail = l => l().tail;
+const tail = l => l(false);
 
 const nth = (l, n) => n == 0 ? head(l) : nth(tail(l), n - 1);
 
